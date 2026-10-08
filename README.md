@@ -1,6 +1,6 @@
 # Sealstep by BaaS.sh
 
-![Sealstep by BaaS.sh — a gold-lot verification workflow](assets/sealstep-1200x630.png)
+![BaaS ZK — a gold-lot verification workflow](assets/baas-zk-1200x630.png)
 
 Private business-rule verification on Stellar, with gold traceability as the first use case.
 
