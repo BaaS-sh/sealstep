@@ -4,7 +4,18 @@
 
 Private business-rule verification on Stellar, with gold traceability as the first use case.
 
-**Status: proposal / pre-testnet.** This repository presents the planned module. It does not yet contain an implementation, a deployed Soroban contract, or verification benchmarks. Circom/Groth16 compatibility with our proposed Soroban verifier has not yet been tested.
+**Status:** the Sealstep contracts are not implemented yet. A feasibility test of the verifier is already deployed on Stellar testnet (see below).
+
+## Feasibility test (done, self-funded)
+
+A first Groth16/BN254 verifier runs on Stellar testnet, using host functions introduced in Protocol 25.
+
+- Code: [soroban-groth16-verifier](https://github.com/JonathanOkz/soroban-groth16-verifier)
+- Testnet contract: [CD4TNAQANCELKRSQ4XD2KFEAZN7CF6T7GDDJYZYWIIKFIY5D2HUKG7AI](https://stellar.expert/explorer/testnet/contract/CD4TNAQANCELKRSQ4XD2KFEAZN7CF6T7GDDJYZYWIIKFIY5D2HUKG7AI)
+- Tests: valid proof → true; same proof with a wrong input → false; second valid proof → true
+- Cost: 0.0023203 XLM per verification (excluding deployment)
+
+This test uses a minimal multiplication circuit, not the Sealstep gold circuits, and is outside the SCF budget.
 
 ## What Sealstep will do
 
@@ -16,7 +27,7 @@ The first demonstrator follows a gold lot. A refiner or assay laboratory supplie
 
 Protocol 25 introduced native BN254 operations and Poseidon permutation primitives in Soroban. These provide the cryptographic building blocks for the proposed Groth16 verifier and ZK-friendly commitments. Keeping verification and workflow state on Stellar allows other Soroban applications to consume the result on the same network.
 
-This is a technical basis for the proposal, not a measured performance claim. Compatibility, verification costs and resource limits still need project-specific validation. See [Stellar's Protocol 25 announcement](https://stellar.org/blog/developers/announcing-stellar-x-ray-protocol-25) and [Stellar privacy documentation](https://developers.stellar.org/docs/build/apps/privacy).
+The feasibility test confirms Groth16/BN254 verification on Soroban for a multiplication circuit. Verification costs and resource limits for the Sealstep gold circuits still need to be measured. See [Stellar's Protocol 25 announcement](https://stellar.org/blog/developers/announcing-stellar-x-ray-protocol-25) and [Stellar privacy documentation](https://developers.stellar.org/docs/build/apps/privacy).
 
 ## Proposed design
 
@@ -36,9 +47,11 @@ Physical checks remain the responsibility of trusted issuers: a proof cannot est
 
 - **Months 1–2:** circuits, registry and verifier; compatibility validation, trusted-setup design and testnet resource benchmarks.
 - **Month 3:** SDK integration and the gold-workflow demonstrator.
-- **Month 4:** security review, documentation and a targeted mainnet release, conditional on validation.
+- **Month 4:** application security testing, documentation and mainnet release.
 
-The proposed scope covers Stellar components only. The module is intended to work independently of the BaaS platform and also integrate with it. Implementation is planned under Apache-2.0. No industrial gold-sector pilot is claimed at this stage.
+The proposed scope covers Stellar components only. The module is intended to work independently of the BaaS platform and also integrate with it. Implementation is planned under Apache-2.0.
+
+Natixar, a mineral-traceability company, signed a letter of interest to test Sealstep: [Natixar_LOI_BaaS_Stellar.pdf](docs/Natixar_LOI_BaaS_Stellar.pdf).
 
 ## Team and existing foundation
 
@@ -59,3 +72,7 @@ Publication status checked on 9 October 2026. These papers support the team's re
 ## Project links
 
 [BaaS.sh](https://baas.sh) · [Platform documentation](https://docs.baas.sh) · [Open a project issue](https://github.com/BaaS-sh/sealstep/issues)
+
+## License
+
+Apache-2.0, see [LICENSE](LICENSE).
