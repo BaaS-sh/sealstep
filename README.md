@@ -214,7 +214,7 @@ Natixar, a mineral-traceability company, signed a letter of interest to test Sea
 - Patrice Van de Velde, COO and Research engineer
 - [Ruslan Kasheparov](https://github.com/RuslanProgrammer), PhD researcher and Blockchain developer
 - [Nour EL MADHOUN](https://scholar.google.com/citations?user=zRQNyEwAAAAJ&hl=fr), Ruslan’s PhD supervisor at Isep
-- Yosra Helal, Senior Blockchain developer
+- [Yosra Helal](https://github.com/yosrahelal), Senior Blockchain developer
 
 Existing BaaS developer tooling is described at [docs.baas.sh](https://docs.baas.sh). It provides an engineering foundation; it is distinct from this proposed Stellar module.
 
